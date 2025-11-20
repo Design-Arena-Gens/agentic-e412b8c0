@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+:root {
+  --font-sans: var(--font-geist-sans), "Inter", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  --font-mono: var(--font-geist-mono), "IBM Plex Mono", "Fira Code", monospace;
+  --space-night: #040914;
+  --space-blue: #071938;
+  --space-indigo: #0f2348;
+  --text-primary: #ecf2ff;
+  --text-muted: rgba(214, 225, 255, 0.72);
+}
+
+@theme inline {
+  --color-background: transparent;
+  --color-foreground: transparent;
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  background:
+    radial-gradient(
+      circle at 18% 25%,
+      rgba(90, 150, 255, 0.18),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(0, 212, 255, 0.12),
+      transparent 60%
+    ),
+    radial-gradient(circle at 50% 110%, rgba(56, 98, 255, 0.14), transparent 40%),
+    linear-gradient(160deg, var(--space-night) 0%, var(--space-indigo) 55%, var(--space-blue) 100%);
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.38), transparent),
+    radial-gradient(1px 1px at 120px 80px, rgba(255, 255, 255, 0.28), transparent),
+    radial-gradient(1.5px 1.5px at 260px 220px, rgba(255, 255, 255, 0.22), transparent),
+    radial-gradient(1px 1px at 460px 140px, rgba(255, 255, 255, 0.18), transparent),
+    radial-gradient(1px 1px at 640px 320px, rgba(255, 255, 255, 0.25), transparent);
+  background-size: 360px 360px, 420px 420px, 480px 480px, 560px 560px, 640px 640px;
+  opacity: 0.45;
+  z-index: -1;
+}
